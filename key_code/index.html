@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Key down</title>
+</head>
+<body>
+
+    <div class="guide">Press Any Key</div>
+    <div class="box hide">
+        <div class="result">0</div>
+        <div class="detail">
+            <div class="card">
+                <div class="key">Key</div>
+                <div class="info">0</div>
+            </div>
+            <div class="card">
+                <div class="key">Location</div>
+                <div class="info location">0</div>
+            </div>
+            <div class="card">
+                <div class="key">Which</div>
+                <div class="info which">0</div>
+            </div>
+            <div class="card">
+                <div class="key">Code</div>
+                <div class="info code">0</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const guide = document.querySelector(".guide");
+        const box = document.querySelector(".box");
+        const info = document.querySelector(".info");
+        const Location = document.querySelector(".location");
+        const Which = document.querySelector(".which");
+        const Code = document.querySelector(".code");
+        const result = document.querySelector(".result");
+
+        document.addEventListener("keydown", (e) => {
+            guide.classList.add("hide");
+            box.classList.remove("hide");
+            console.log(e)
+            result.innerHTML = e.code;
+            info.innerText = e.key;
+            Location.innerText = e.location;
+            Which.innerText = e.which;
+            Code.innerText = e.code;
+            if(e.keyCode === 27) {
+                guide.classList.remove("hide");
+                box.classList.add("hide");
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <button class="btn">Open modal</button>
+    <div class="modal hide">
+        <div class="inner-modal">
+            <div class="modal-header">
+                <span>Welcome to my website</span>
+                <span><i class='bx bx-x close-js'></i></span>
+            </div>
+            <div class="modal-body">
+                <h2>Modal</h2>
+                <div style="font-size: 20px;">This is content</div>
+            </div>
+            <div class="modal-footer"><button class="btn-red">Close</button></div>
+        </div>
+    </div>
+
+    <script>
+        const zoneClose = document.querySelector(".modal");
+        const inconClose = document.querySelector(".close-js");
+        const btnClose = document.querySelector(".btn-red");
+        const btnOpen = document.querySelector(".btn");
+        const modal = document.querySelector(".inner-modal");
+
+        function toggleClose(e) {
+            zoneClose.classList.toggle("hide")
+        }
+
+        btnOpen.addEventListener("click", toggleClose)
+        zoneClose.addEventListener("click", toggleClose)
+        btnClose.addEventListener("click", toggleClose)
+        modal.addEventListener("click", function(e) {
+            e.stopPropagation()
+        })
+        inconClose.addEventListener("click", toggleClose)
+    </script>
+</body>
+</html>
